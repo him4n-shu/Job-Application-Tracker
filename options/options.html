@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Tracker - Options</title>
+  <link rel="stylesheet" href="options.css">
+  <meta name="options_page" content="true">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Job Application Tracker</h1>
+      <p>Manage your job applications and settings</p>
+    </header>
+    
+    <div class="tabs">
+      <button class="tab-button active" data-tab="applications">Applications</button>
+      <button class="tab-button" data-tab="settings">Settings</button>
+      <button class="tab-button" data-tab="export">Export/Import</button>
+    </div>
+    
+    <div class="tab-content">
+      <!-- Applications Tab -->
+      <div id="applications" class="tab-pane active">
+        <div class="controls">
+          <div class="search">
+            <input type="text" id="search-input" placeholder="Search applications...">
+          </div>
+          <div class="filters">
+            <select id="status-filter">
+              <option value="all">All Statuses</option>
+              <option value="applied">Applied</option>
+              <option value="interview">Interview</option>
+              <option value="offer">Offer</option>
+              <option value="rejected">Rejected</option>
+            </select>
+            <select id="sort-by">
+              <option value="date-desc">Date (Newest First)</option>
+              <option value="date-asc">Date (Oldest First)</option>
+              <option value="company">Company Name</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="applications-list">
+          <table id="applications-table">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Position</th>
+                <th>Date Applied</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="applications-tbody">
+              <!-- Applications will be inserted here -->
+            </tbody>
+          </table>
+          <div id="no-applications" class="no-data">No applications found.</div>
+        </div>
+      </div>
+      
+      <!-- Settings Tab -->
+      <div id="settings" class="tab-pane">
+        <h2>Notification Settings</h2>
+        <div class="setting-group">
+          <label>
+            <input type="checkbox" id="enable-notifications">
+            Enable notifications
+          </label>
+        </div>
+        <div class="setting-group">
+          <label>Remind me to follow up after:</label>
+          <select id="follow-up-days">
+            <option value="3">3 days</option>
+            <option value="5">5 days</option>
+            <option value="7">7 days</option>
+            <option value="14">14 days</option>
+          </select>
+        </div>
+        
+        <h2>Job Site Detection</h2>
+        <div class="setting-group">
+          <label>
+            <input type="checkbox" id="auto-detect">
+            Auto-detect job application pages
+          </label>
+        </div>
+        <div class="setting-group">
+          <label>
+            <input type="checkbox" id="auto-save">
+            Automatically track job applications when you apply
+          </label>
+          <p class="setting-description">When enabled, the extension will automatically track job applications when you submit them on LinkedIn, Indeed, or Naukri.</p>
+        </div>
+        <div class="setting-group">
+          <label>Additional job sites to detect (one per line):</label>
+          <textarea id="job-sites"></textarea>
+        </div>
+        
+        <button id="save-settings">Save Settings</button>
+      </div>
+      
+      <!-- Export/Import Tab -->
+      <div id="export" class="tab-pane">
+        <div class="export-section">
+          <h2>Export Data</h2>
+          <p>Download all your job application data as a JSON file.</p>
+          <button id="export-data">Export Data</button>
+        </div>
+        
+        <div class="import-section">
+          <h2>Import Data</h2>
+          <p>Import job application data from a JSON file.</p>
+          <p class="warning">Warning: This will replace all your current data.</p>
+          <input type="file" id="import-file" accept=".json">
+          <button id="import-data" disabled>Import Data</button>
+        </div>
+        
+        <div class="danger-zone">
+          <h2>Danger Zone</h2>
+          <p>Delete all your job application data.</p>
+          <button id="clear-data" class="danger">Clear All Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Application Details Modal -->
+  <div id="application-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Application Details</h2>
+      <form id="edit-application-form">
+        <input type="hidden" id="edit-id">
+        <div class="form-group">
+          <label for="edit-company">Company:</label>
+          <input type="text" id="edit-company" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-position">Position:</label>
+          <input type="text" id="edit-position" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-date">Date Applied:</label>
+          <input type="date" id="edit-date" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-status">Status:</label>
+          <select id="edit-status">
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="edit-notes">Notes:</label>
+          <textarea id="edit-notes"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="save">Save Changes</button>
+          <button type="button" class="delete danger">Delete Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html> 

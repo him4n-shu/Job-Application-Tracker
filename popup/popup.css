@@ -1,0 +1,154 @@
+/* Popup styles for Job Application Tracker */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  width: 400px;
+  min-height: 500px;
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #4285f4;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 16px;
+  color: #4285f4;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: #555;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  height: 60px;
+  resize: vertical;
+}
+
+button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #3367d6;
+}
+
+.applications-list {
+  margin-top: 10px;
+}
+
+.application-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.company {
+  font-weight: bold;
+  color: #333;
+}
+
+.position {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.date {
+  font-size: 12px;
+  color: #777;
+}
+
+.status {
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.applied {
+  background-color: #e8f0fe;
+  color: #4285f4;
+}
+
+.interview {
+  background-color: #fef8e8;
+  color: #fbbc04;
+}
+
+.offer {
+  background-color: #e6f4ea;
+  color: #34a853;
+}
+
+.rejected {
+  background-color: #fce8e6;
+  color: #ea4335;
+}
+
+.no-applications {
+  color: #777;
+  font-style: italic;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#options {
+  background-color: #f1f1f1;
+  color: #555;
+} 
